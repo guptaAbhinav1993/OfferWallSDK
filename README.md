@@ -3,7 +3,7 @@
 Define below dependency into your gradle file
 
             dependencies {
-	                    implementation ("com.github.guptaAbhinav1993:OfferWallSDK:Tag")
+	                    implementation ("com.github.guptaAbhinav1993:OfferWallSDK:1.0.2")
 	        }   
 
 
