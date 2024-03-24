@@ -87,9 +87,9 @@ subprojects {
             register<MavenPublication>("gpr") {
                 from(components["java"])
                 groupId = "com.brandmatic"
-                artifactId = "mylib"
+                artifactId = "offerwallsdk"
                 version = "1.0.0"
-                artifact("$buildDir/outputs/aar/mylib-release.aar")
+                artifact("$buildDir/outputs/aar/offerwallsdk-release.aar")
             }
         }
     }
