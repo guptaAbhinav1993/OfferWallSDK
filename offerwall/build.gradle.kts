@@ -89,7 +89,7 @@ subprojects {
                 groupId = "com.brandmatic"
                 artifactId = "offerwallsdk"
                 version = "1.0.0"
-                artifact("$buildDir/outputs/aar/offerwallsdk-release.aar")
+                artifact("${project.layout.buildDirectory}/outputs/aar/offerwallsdk-release.aar")
             }
         }
     }
