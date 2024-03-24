@@ -70,26 +70,36 @@ dependencies {
     implementation ("androidx.browser:browser:1.8.0")
 }
 
-subprojects {
-    apply(plugin = "maven-publish")
-    configure<PublishingExtension> {
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/guptaAbhinav1993/OfferWallSDK")
-                credentials {
-                    username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                    password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
-                }
-            }
-        }
-        publications {
-            register<MavenPublication>("gpr") {
-                from(components["java"])
-                groupId = "com.brandmatic"
-                artifactId = "offerwallsdk"
-                version = "1.0.6"
-                artifact("${project.layout.buildDirectory}/outputs/aar/offerwallsdk-release.aar")
+//subprojects {
+//    apply(plugin = "maven-publish")
+//    configure<PublishingExtension> {
+//        repositories {
+//            maven {
+//                name = "GitHubPackages"
+//                url = uri("https://maven.pkg.github.com/guptaAbhinav1993/OfferWallSDK")
+//                credentials {
+//                    username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+//                    password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+//                }
+//            }
+//        }
+//        publications {
+//            register<MavenPublication>("gpr") {
+//                from(components["java"])
+//                groupId = "com.brandmatic"
+//                artifactId = "offerwallsdk"
+//                version = "1.0.6"
+//                artifact("${project.layout.buildDirectory}/outputs/aar/offerwallsdk-release.aar")
+//            }
+//        }
+//    }
+//}
+
+publishing{
+    publications{
+        register<MavenPublication>("release"){
+            afterEvaluate {
+                from(components["release"])
             }
         }
     }
