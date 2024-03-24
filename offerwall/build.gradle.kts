@@ -88,7 +88,7 @@ subprojects {
                 from(components["java"])
                 groupId = "com.brandmatic"
                 artifactId = "offerwallsdk"
-                version = "1.0.0"
+                version = "1.0.1"
                 artifact("${project.layout.buildDirectory}/outputs/aar/offerwallsdk-release.aar")
             }
         }
