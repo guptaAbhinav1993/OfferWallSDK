@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     id("maven-publish")
+
 }
 
 android {
@@ -40,15 +41,7 @@ android {
     }
 }
 
-publishing{
-    publications{
-        register<MavenPublication>("release"){
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}
+
 
 dependencies {
 
@@ -75,4 +68,29 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
 
     implementation ("androidx.browser:browser:1.8.0")
+}
+
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/guptaAbhinav1993/OfferWallSDK")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                }
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+                groupId = "com.brandmatic"
+                artifactId = "mylib"
+                version = "1.0.0"
+                artifact("$buildDir/outputs/aar/mylib-release.aar")
+            }
+        }
+    }
 }

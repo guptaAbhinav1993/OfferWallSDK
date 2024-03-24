@@ -123,8 +123,8 @@ class OfferActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun getIntentForOfferWall(context: Context?, getColor: String): Intent {
-            return Intent(context, OfferActivity::class.java).putExtra("getColor", getColor)
+        fun getIntentForOfferWall(context: Context?): Intent {
+            return Intent(context, OfferActivity::class.java)
         }
 
     }

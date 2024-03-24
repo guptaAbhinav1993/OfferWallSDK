@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.tv).setOnClickListener {
-            val intent: Intent = OfferActivity.getIntentForOfferWall(this,"#00BCD4")
+            val intent: Intent = OfferActivity.getIntentForOfferWall(this)
             startActivity(intent)
         }
 
