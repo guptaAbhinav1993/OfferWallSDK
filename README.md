@@ -6,6 +6,12 @@ Define below dependency into your gradle file
 	                    implementation ("com.github.guptaAbhinav1993:OfferWallSDK:1.0.7")
 	        }   
 
+Add this in build.gradle(:app)
+
+	    dataBinding {
+        	enabled = true
+   	        }
+
 
 Add this Jitpack maven url
 
