@@ -24,6 +24,11 @@ Add this Jitpack maven url
 	        }
 
 
+Give Internet permission in Manifest file
+
+		<uses-permission android:name="android.permission.INTERNET" />
+
+
 Mention below code in Application class
 
             SDK().getInstance(this)
