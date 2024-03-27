@@ -29,6 +29,9 @@ Give Internet permission in Manifest file
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
+# IN KOTLIN :
+
+
 Mention below code in Application class
 
             SDK().getInstance(this)
@@ -37,3 +40,23 @@ Mention below Code in to your Activity class
 
             val intent: Intent = OfferActivity.getIntentForOfferWall(this)
             startActivity(intent)
+
+
+# IN JAVA :
+
+Mention below code in Application class
+
+		import com.brandmatic.offerwall.helper.SDK;
+
+		new SDK().getInstance(this);
+
+
+Mention below Code in to your Activity class
+
+		import com.brandmatic.offerwall.activity.OfferActivity;
+
+  
+  		new OfferActivity();
+                Intent intent = OfferActivity.Companion.getIntentForOfferWall(this);
+                startActivity(intent);
+
