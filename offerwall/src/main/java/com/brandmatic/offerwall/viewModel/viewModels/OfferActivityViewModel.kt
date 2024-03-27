@@ -1,6 +1,7 @@
 package com.brandmatic.offerwall.viewModel.viewModels
 
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -43,9 +44,9 @@ class OfferActivityViewModel(private val offerWallRepository: OfferWallRepositor
 
         val offerWallRequest = OfferWallRequest(
             appList = appList,
-            gaid = "",
+            gaid = gaid.value!!,
             no = "9205810224",
-            oem = "",
+            oem = Build.BRAND,
             vc = 1
         )
 
@@ -54,6 +55,7 @@ class OfferActivityViewModel(private val offerWallRepository: OfferWallRepositor
 
             override fun onFailure() {
                 toastMessage.value = "Server Error"
+                dialogCondition.value = false
             }
 
             override fun onReceiveResponse(response: OfferWallResponse?) {
