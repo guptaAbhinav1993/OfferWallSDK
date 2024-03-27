@@ -29,6 +29,23 @@ Give Internet permission in Manifest file
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
+Make sure network_security_config.xml should be in res/xml folder
+Example:
+
+		<?xml version="1.0" encoding="utf-8"?>
+		<network-security-config>
+    		<base-config cleartextTrafficPermitted="true">
+        		<trust-anchors>
+            		<certificates src="system" />
+        		</trust-anchors>
+   		 </base-config>
+		</network-security-config>
+
+and mention in to the manifest file in application tag
+
+		android:networkSecurityConfig="@xml/network_security_config"
+
+
 # IN KOTLIN :
 
 
