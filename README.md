@@ -3,7 +3,7 @@
 Define below dependency into your gradle file
 
             dependencies {
-	                    implementation ("com.github.guptaAbhinav1993:OfferWallSDK:1.0.7")
+	                    implementation ("com.github.guptaAbhinav1993:OfferWallSDK:1.0.8")
 	        }   
 
 Add this in build.gradle(:app)
